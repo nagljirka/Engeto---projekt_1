@@ -38,7 +38,7 @@ if text_input.isnumeric():
 else:
     print("username:", user_input)
     print("password:", password_input)
-    print("unregistered user, terminating the program..")
+    print("wrong input, terminating the program..")
     sys.exit()
 
 text_index = int(text_input) - 1
@@ -103,7 +103,7 @@ if int(text_input) in index_list:
 else:
     print("username:", user_input)
     print("password:", password_input)
-    print("unregistered user, terminating the program..")
+    print("wrong input, terminating the program..")
     sys.exit()
 
     

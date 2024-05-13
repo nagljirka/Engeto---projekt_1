@@ -47,38 +47,43 @@ if int(text_input) in index_list:
     text_index = int(text_input) - 1
     # počet slov
     count_words = len(TEXTS[text_index].split())
-    print("There are", count_words, "words in the selected text.")
-    # počet slov začínajících velkým písmenem
+
     count_upletter = 0
+    count_uppercase_words = 0
+    count_lowercase_words = 0
+    count_numeric_str = 0
+    sum_numbers = []
+
     for word in TEXTS[text_index].split():
+        # počet slov začínajících velkým písmenem
         if word.istitle():
             count_upletter += 1
-    print("There are", count_upletter, "titlecase words.")
-    # počet slov psaných velkými písmeny
-    count_uppercase_words = 0
-    for uppercase_words in TEXTS[text_index].split():
-        if uppercase_words.isupper() and uppercase_words.isalpha():
+
+        # počet slov psaných velkými písmeny
+        if word.isupper() and word.isalpha():
             count_uppercase_words += 1
-    print("There are", count_uppercase_words, "uppercase words.")
-    # počet slov psaných malými písmeny
-    count_lowercase_words = 0
-    for lowercase_words in TEXTS[text_index].split():
-        if lowercase_words.islower():
+
+        # počet slov psaných malými písmeny
+        if word.islower():
             count_lowercase_words += 1
-    print("There are", count_lowercase_words, "lowercase words.")
-    # počet čísel
-    count_numeric_str = 0
-    for numeric_str in TEXTS[text_index].split():
-        if numeric_str.isnumeric():
+
+         # počet čísel
+        if word.isnumeric():
             count_numeric_str += 1
+
+        # suma všech čísel
+        if word.isnumeric():
+            sum_numbers.append(int(word))
+
+    print("There are", count_words, "words in the selected text.")
+    print("There are", count_upletter, "titlecase words.")
+    print("There are", count_uppercase_words, "uppercase words.")
+    print("There are", count_lowercase_words, "lowercase words.")
     print("There are", count_numeric_str, "numeric strings.")
-    # suma všech čísel
-    numbers = []
-    for all_number in TEXTS[text_index].split():
-        if all_number.isnumeric():
-            numbers.append(int(all_number))
-    print("The sum of all the numbers", sum(numbers))
+    print("The sum of all the numbers", sum(sum_numbers))
+
     print("-" * 40)
+    
     # sloupcový graf četnosti délek slov
     words_length = []
     key = {}

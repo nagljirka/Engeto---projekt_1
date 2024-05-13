@@ -33,13 +33,12 @@ else:
     
 
 text_input = input("Enter a number btw. 1 and 3 to select:")
-if text_input.isnumeric():
-    pass
-else:
+if not text_input.isnumeric():
     print("username:", user_input)
     print("password:", password_input)
     print("wrong input, terminating the program..")
     sys.exit()
+
 
 text_index = int(text_input) - 1
 
